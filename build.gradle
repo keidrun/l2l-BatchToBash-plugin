@@ -38,6 +38,11 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+// for Enclosed Test
+test {
+    exclude '**/*$*'
+}
+
 // coverage
 jacoco {
     toolVersion = "0.7.+"
