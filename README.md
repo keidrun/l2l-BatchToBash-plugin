@@ -69,7 +69,7 @@ dependencies {
 
 ## Not implemented list
 
-- `for` optoins
+- `for` options
 - `goto` and `:LABEL`
 - `if` command
 - `setlocal` and `endlocal`

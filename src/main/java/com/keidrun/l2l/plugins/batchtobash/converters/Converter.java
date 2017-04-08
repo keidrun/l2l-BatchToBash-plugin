@@ -1,7 +1,7 @@
 /**
  * Copyright 2017 Keid
 */
-package com.keidrun.l2l.plugins.batchtobash.comverters;
+package com.keidrun.l2l.plugins.batchtobash.converters;
 
 import java.util.ArrayList;
 import java.util.List;
