@@ -9,9 +9,9 @@ import java.util.List;
 import com.keidrun.l2l.face.element.Combination;
 import com.keidrun.l2l.face.element.Language;
 import com.keidrun.l2l.face.plugins.ConvertPlugin;
-import com.keidrun.l2l.plugins.batchtobash.comverters.CommandConverter;
-import com.keidrun.l2l.plugins.batchtobash.comverters.Converter;
-import com.keidrun.l2l.plugins.batchtobash.comverters.GrammerConverter;
+import com.keidrun.l2l.plugins.batchtobash.converters.CommandConverter;
+import com.keidrun.l2l.plugins.batchtobash.converters.Converter;
+import com.keidrun.l2l.plugins.batchtobash.converters.GrammarConverter;
 
 /**
  * Batch to bash conversion.
@@ -54,7 +54,7 @@ public class ConvertBatchToBashPlugin implements ConvertPlugin {
         }
 
         List<Converter> converters = new ArrayList<Converter>();
-        converters.add(new GrammerConverter());
+        converters.add(new GrammarConverter());
         converters.add(new CommandConverter());
         for (Converter c : converters) {
             program = c.convert(program);

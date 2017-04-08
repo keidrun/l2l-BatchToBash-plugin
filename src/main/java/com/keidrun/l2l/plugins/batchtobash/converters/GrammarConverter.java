@@ -1,7 +1,7 @@
 /**
  * Copyright 2017 Keid
 */
-package com.keidrun.l2l.plugins.batchtobash.comverters;
+package com.keidrun.l2l.plugins.batchtobash.converters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import com.keidrun.l2l.plugins.batchtobash.element.MatchedSub;
  * 
  * @author Keid
  */
-public class GrammerConverter implements Converter {
+public class GrammarConverter implements Converter {
 
     /*
      * (non-Javadoc)

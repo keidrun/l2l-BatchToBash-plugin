@@ -1,4 +1,4 @@
-package com.keidrun.l2l.plugins.batchtobash.comverters;
+package com.keidrun.l2l.plugins.batchtobash.converters;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -9,6 +9,9 @@ import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
+
+import com.keidrun.l2l.plugins.batchtobash.converters.CommandConverter;
+import com.keidrun.l2l.plugins.batchtobash.converters.Converter;
 
 @RunWith(Enclosed.class)
 public class CommandConverterTest {

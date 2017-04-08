@@ -1,4 +1,4 @@
-package com.keidrun.l2l.plugins.batchtobash.comverters;
+package com.keidrun.l2l.plugins.batchtobash.converters;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -11,8 +11,11 @@ import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
+import com.keidrun.l2l.plugins.batchtobash.converters.Converter;
+import com.keidrun.l2l.plugins.batchtobash.converters.GrammarConverter;
+
 @RunWith(Enclosed.class)
-public class GrammerConverterTest {
+public class GrammarConverterTest {
 
     @RunWith(Theories.class)
     public static class convert {
@@ -20,7 +23,7 @@ public class GrammerConverterTest {
 
         @Before
         public void setup() throws Exception {
-            sut = new GrammerConverter();
+            sut = new GrammarConverter();
         }
 
         // @formatter:off
