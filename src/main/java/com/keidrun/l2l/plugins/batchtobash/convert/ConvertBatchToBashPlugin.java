@@ -3,9 +3,14 @@
 */
 package com.keidrun.l2l.plugins.batchtobash.convert;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.keidrun.l2l.face.element.Combination;
 import com.keidrun.l2l.face.element.Language;
 import com.keidrun.l2l.face.plugins.ConvertPlugin;
+import com.keidrun.l2l.plugins.batchtobash.comverters.CommandConverter;
+import com.keidrun.l2l.plugins.batchtobash.comverters.Converter;
 import com.keidrun.l2l.plugins.batchtobash.comverters.GrammerConverter;
 
 /**
@@ -48,7 +53,14 @@ public class ConvertBatchToBashPlugin implements ConvertPlugin {
                     "The combination of " + combination.origin() + " and " + combination.dest() + "is not supported.");
         }
 
-        return new GrammerConverter().convert(program);
+        List<Converter> converters = new ArrayList<Converter>();
+        converters.add(new GrammerConverter());
+        converters.add(new CommandConverter());
+        for (Converter c : converters) {
+            program = c.convert(program);
+        }
+
+        return program;
 
     }
 

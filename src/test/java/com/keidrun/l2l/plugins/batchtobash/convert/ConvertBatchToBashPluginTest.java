@@ -34,11 +34,35 @@ public class ConvertBatchToBashPluginTest {
         @DataPoints
         public static Fixture[] FIXTUREs = {
                 new Fixture(
-                          "@echo off \n"
-                        + "echo hello",
-                          "#!/bin/bash \n"
-                        + "echo hello")
-
+                          "@echo off\n"
+                        + "cd /d %~dp0\n\n"
+                        + "set ARG=%1\n\n"
+                        + "if %ARG%==1 (\n"
+                        + "    echo 1\n"
+                        + ") else if %ARG%==2 (\n"
+                        + "    echo 2\n"
+                        + ") else (\n"
+                        + "    echo 3\n"
+                        + ")\n\n"
+                        + "for %%i in (*.txt) do (\n"
+                        + "    echo %%i\n"
+                        + ")\n\n"
+                        + "pause",
+                          "#!/bin/bash\n"
+                        + "cd `dirname $0`\n\n"
+                        + "ARG=$1\n\n"
+                        + "if [ ${ARG} -eq 1 ]; then\n"
+                        + "    echo 1\n"
+                        + "elif [ ${ARG} -eq 2 ]; then\n"
+                        + "    echo 2\n"
+                        + "else\n"
+                        + "    echo 3\n"
+                        + "fi\n\n"
+                        + "for i in `ls *.txt`; do\n"
+                        + "    echo i\n"
+                        + "done\n\n"
+                        + "read -p \"Press [Enter] key to resume.\""
+                        ),
         };
         // @formatter:on
 

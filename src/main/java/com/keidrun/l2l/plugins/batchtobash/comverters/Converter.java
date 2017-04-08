@@ -21,11 +21,6 @@ import com.keidrun.l2l.plugins.batchtobash.element.MatchedSub;
 public interface Converter {
 
     /**
-     * Convert.
-     * 
-     * @param sentence
-     */
-    /**
      * Convet.
      * 
      * @param the
@@ -47,21 +42,21 @@ public interface Converter {
         Matcher m = Pattern.compile(regEx).matcher(sentence);
         List<MatchedSub> matchedList = new ArrayList<MatchedSub>();
 
-        String commentedSentende = sentence;
+        String commentedSentence = sentence;
         while (m.find()) {
             MatchedSub sub = new MatchedSub();
             String temp = m.group();
             String randomValue = RandomStringUtils.randomAlphabetic(10);
-            String commented = new StringBuilder().append("###").append(randomValue).append("###").toString();
+            String comment = new StringBuilder().append("###").append(randomValue).append("###").toString();
 
-            commentedSentende = commentedSentende.replaceFirst(temp, commented);
+            commentedSentence = commentedSentence.replaceFirst(Pattern.quote(temp), comment);
 
             sub.setOriginal(temp);
-            sub.setCommented(commented);
+            sub.setCommented(comment);
             matchedList.add(sub);
         }
 
-        return new Matched(sentence, commentedSentende, matchedList);
+        return new Matched(sentence, commentedSentence, matchedList);
     }
 
     /**
@@ -79,7 +74,38 @@ public interface Converter {
         for (MatchedSub sub : subs) {
             convertedSentence = convertedSentence.replace(sub.getCommented(), sub.getConverted());
         }
+
         return convertedSentence;
+    }
+
+    /**
+     * Match and replace.
+     * 
+     * @param sentence
+     *            the sentence
+     * @param regEx
+     *            the regular expression
+     * @param beforeWord
+     *            the word before replace
+     * @param afterWord
+     *            the word after replace
+     * @return
+     */
+    default String matchAndReplace(String sentence, String regEx, String beforeWord, String afterWord) {
+
+        Matched matched = matchAndCommentOut(sentence, regEx);
+        List<MatchedSub> matchedList = matched.getMatchedList();
+
+        List<MatchedSub> convertedList = new ArrayList<MatchedSub>();
+        for (MatchedSub sub : matchedList) {
+            String converted = sub.getOriginal();
+            converted = converted.replaceFirst(beforeWord, afterWord);
+            sub.setConverted(converted);
+            convertedList.add(sub);
+        }
+        matched.setMatchedList(convertedList);
+
+        return uncomment(matched);
     }
 
 }

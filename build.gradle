@@ -1,5 +1,23 @@
-apply plugin: 'java'
-apply plugin: 'jacoco'
+// bintray
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3"
+    }
+}
+apply plugin: "com.jfrog.bintray"
+
+apply plugin: "java"
+apply plugin: "jacoco"
+apply plugin: "maven-publish"
+
+group "com.keidrun.l2l-BatchToBash-plugin"
+//version = "0.0.1"  //gradle -Pversion=0.0.1 bintrayUpload
+def tag = "v${project.version}"
+def productName = "Windows batch to Linux bash L2L Plugin"
+description = "${project.name} build of the version ${project.version}"
 
 def defaultEncoding = 'UTF-8'
 
@@ -36,3 +54,106 @@ task codeCoverageReport(type: JacocoReport, dependsOn: 'test') {
         csv.enabled = false
     }
 }
+
+// jar
+jar {
+    manifest{
+        attributes(
+            "Implementation-Title": project.name,
+            "Implementation-Version": project.version
+        )
+    }
+}
+task sourceJar(type: Jar) {
+    classifier "sources"
+    from sourceSets.main.allJava
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier "javadoc"
+    from javadoc.destinationDir
+}
+jar.dependsOn sourceJar, javadocJar
+
+// publish
+publishing {
+    publications {
+        mod(MavenPublication) {
+            from components.java
+
+            artifact sourceJar
+            artifact javadocJar
+
+            pom.withXml { xml ->
+                final thisPom = {
+                    packaging "jar"
+                    name "$productName"
+                    url "https://github.com/keidrun/l2l-BatchToBash-plugin"
+                    description "${project.description}"
+                    licenses {
+                        license {
+                            name "MIT License"
+                            url "https://opensource.org/licenses/MIT"
+                            distribution "repo"
+                        }
+                    }
+                    scm {
+                        url "https://github.com/keidrun/l2l-BatchToBash-plugin"
+                        connection "https://github.com/keidrun/l2l-BatchToBash-plugin"
+                    }
+                    developers {
+                        developer {
+                            id "keidrun"
+                            name "Keid"
+                            email "kssk96@gmail.com"
+                        }
+                    }
+                }
+                thisPom.resolveStrategy = Closure.DELEGATE_FIRST
+                xml.asNode().children().last() + thisPom
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name "local"
+            url "$buildDir/repositories/repo"
+        }
+    }
+}
+
+// upload by bintray
+bintray {
+    user = project.hasProperty("bintrayUser") ? bintrayUser : ""
+    key = project.hasProperty("bintrayKey") ? bintrayKey : ""
+    publications = ["mod"]
+    publish = true
+    pkg {
+        repo = "l2l-BatchToBash-plugin"
+        name = "l2l-BatchToBash-plugin"
+        websiteUrl = "https://github.com/keidrun/l2l-BatchToBash-plugin"
+        issueTrackerUrl = "https://github.com/keidrun/l2l-BatchToBash-plugin/issues"
+        vcsUrl = "https://github.com/keidrun/l2l-BatchToBash-plugin.git"
+        licenses = ["MIT"]
+        labels = ["l2l", "plugin"]
+        publicDownloadNumbers = true
+
+        version {
+            name = tag
+            desc = "Release version ${project.version}"
+            released = new Date()
+            vcsTag = tag
+            gpg {
+                sign = true
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
