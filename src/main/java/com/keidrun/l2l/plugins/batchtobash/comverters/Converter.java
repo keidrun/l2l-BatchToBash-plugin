@@ -23,8 +23,8 @@ public interface Converter {
     /**
      * Convet.
      * 
-     * @param the
-     *            sentence
+     * @param sentence
+     *            the sentence
      * @return the converted sentence
      */
     public String convert(String sentence);
@@ -64,7 +64,7 @@ public interface Converter {
      * 
      * @param matched
      *            the Matched object
-     * @return
+     * @return the converted sentence
      */
     default String uncomment(Matched matched) {
 
@@ -89,7 +89,7 @@ public interface Converter {
      *            the word before replace
      * @param afterWord
      *            the word after replace
-     * @return
+     * @return the replaced sentence
      */
     default String matchAndReplace(String sentence, String regEx, String beforeWord, String afterWord) {
 

@@ -50,7 +50,7 @@ for i in `ls *.txt`; do
     echo i
 done
 
-read -p \"Press [Enter] key to resume.
+read -p \"Press [Enter] key to resume.\"
 ```
 
 ## Gradle settings
