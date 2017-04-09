@@ -205,17 +205,18 @@ public class GrammarConverter implements Converter {
         sentence = sentence.replaceAll("\\%9", "\\$9");
         sentence = sentence.replaceAll("\\%\\*", "\\$\\@");
         // if condition
-        sentence = matchAndReplace(sentence, "if\\s*\\S+\\s*!==", "!==", " -ne ");
-        sentence = matchAndReplace(sentence, "if\\s*\\S+\\s*==", "==", " -eq ");
-        sentence = matchAndReplace(sentence, "if\\s*\\S+\\s*<=", "<=", " -le ");
-        sentence = matchAndReplace(sentence, "if\\s*\\S+\\s*<", "<", " -lt ");
-        sentence = matchAndReplace(sentence, "if\\s*\\S+\\s*>=", ">=", " -ge ");
-        sentence = matchAndReplace(sentence, "if\\s*\\S+\\s*>", ">", " -gt ");
-        sentence = matchAndReplace(sentence, "if\\s*(not|NOT)", "(not|NOT)", "!");
-        sentence = matchAndReplace(sentence, "if\\s*\\S+\\s*&&", "&&", " -a ");
-        sentence = matchAndReplace(sentence, "if\\s*\\S+\\s*\\|\\|", "\\|\\|", " -o ");
+        sentence = matchAndReplace(sentence, "if\\s+\\S+\\s*!==", "!==", " -ne ");
+        sentence = matchAndReplace(sentence, "if\\s+\\S+\\s*==", "==", " -eq ");
+        sentence = matchAndReplace(sentence, "if\\s+\\S+\\s*<=", "<=", " -le ");
+        sentence = matchAndReplace(sentence, "if\\s+\\S+\\s*<", "<", " -lt ");
+        sentence = matchAndReplace(sentence, "if\\s+\\S+\\s*>=", ">=", " -ge ");
+        sentence = matchAndReplace(sentence, "if\\s+\\S+\\s*>", ">", " -gt ");
+        sentence = matchAndReplace(sentence, "if\\s+(not|NOT)", "(not|NOT)", "!");
+        sentence = matchAndReplace(sentence, "if\\s+\\S+\\s*&&", "&&", " -a ");
+        sentence = matchAndReplace(sentence, "if\\s+\\S+\\s*\\|\\|", "\\|\\|", " -o ");
         // for variable
-        sentence = sentence.replaceAll("\\%\\%", "");
+        sentence = matchAndReplace(sentence, "for\\s+\\S*\\s*\\%\\%", "\\%\\%", "");
+        sentence = sentence.replaceAll("\\%\\%", "\\$");
         // others
         sentence = sentence.replaceAll("\\%\\~dp0", "`dirname \\$0`");
 

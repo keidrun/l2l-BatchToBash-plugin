@@ -171,7 +171,7 @@ public class GrammarConverterTest {
                        + ")\n",
                          "#!/bin/bash\n"
                        + "for i in `ls *.txt`; do\n"
-                       + "echo i\n"
+                       + "echo $i\n"
                        + "done\n"
                         ),
                 new Fixture(
@@ -184,7 +184,7 @@ public class GrammarConverterTest {
                          "#!/bin/bash\n"
                        + "V=$1"
                        + "for i in `ls *.txt`; do\n"
-                       + "echo i\n"
+                       + "echo $i\n"
                        + "echo ${V}\n"
                        + "done\n"
                         ),

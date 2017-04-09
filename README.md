@@ -24,7 +24,7 @@ if %ARG%==1 (
 )
 
 for %%i in (*.txt) do (
-    echo %%i
+    type %%i
 )
 
 pause
@@ -47,10 +47,10 @@ else
 fi
 
 for i in `ls *.txt`; do
-    echo i
+    cat $i
 done
 
-read -p \"Press [Enter] key to resume.\"
+read -p "Press [Enter] key to resume."
 ```
 
 ## Gradle settings

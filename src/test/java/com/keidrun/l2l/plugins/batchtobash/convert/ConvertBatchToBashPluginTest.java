@@ -1,6 +1,7 @@
 package com.keidrun.l2l.plugins.batchtobash.convert;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -45,7 +46,7 @@ public class ConvertBatchToBashPluginTest {
                         + "    echo 3\n"
                         + ")\n\n"
                         + "for %%i in (*.txt) do (\n"
-                        + "    echo %%i\n"
+                        + "    type %%i\n"
                         + ")\n\n"
                         + "pause",
                           "#!/bin/bash\n"
@@ -59,7 +60,7 @@ public class ConvertBatchToBashPluginTest {
                         + "    echo 3\n"
                         + "fi\n\n"
                         + "for i in `ls *.txt`; do\n"
-                        + "    echo i\n"
+                        + "    cat $i\n"
                         + "done\n\n"
                         + "read -p \"Press [Enter] key to resume.\""
                         ),
@@ -104,13 +105,19 @@ public class ConvertBatchToBashPluginTest {
 
         // setup
         ConvertPlugin sut = new ConvertBatchToBashPlugin();
-        Combination com = new Combination(Language.BATCH, Language.BASH);
+        Combination comTrue = new Combination(Language.BATCH, Language.BASH);
+        Combination comFalse1 = new Combination(Language.BATCH, Language.JAVA);
+        Combination comFalse2 = new Combination(Language.JAVA, Language.BASH);
 
         // exercise
-        boolean actual = sut.isSupported(com);
+        boolean actualTrue = sut.isSupported(comTrue);
+        boolean actualFalse1 = sut.isSupported(comFalse1);
+        boolean actualFalse2 = sut.isSupported(comFalse2);
 
         // verify
-        assertTrue(actual);
+        assertTrue(actualTrue);
+        assertFalse(actualFalse1);
+        assertFalse(actualFalse2);
 
     }
 
