@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class Matched {
 
-    String original;
-    String commented;
-    List<MatchedSub> matchedList;
+    private String original;
+    private String commented;
+    private List<MatchedSub> matchedList;
 
     /**
      * Constructor.
