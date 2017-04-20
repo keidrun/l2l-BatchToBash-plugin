@@ -5,9 +5,23 @@
 
 L2L plugin for the conversion from the windows batch program to the linux bash program.
 
+## Installation by Gradle
+
+You add the following configuration to your `build.gradle` file. `${version}` is the release version.
+
+```groovy
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile "com.keidrun.l2l-BatchToBash-plugin:l2l-BatchToBash-plugin:${version}"
+}
+```
+
 ## Example of the Conversion from the Windows BATCH to the Linux BASH
 
-### Input BATCH
+### Input: BATCH program
 
 ```bat
 @echo off
@@ -30,7 +44,7 @@ for %%i in (*.txt) do (
 pause
 ```
 
-### Output BASH
+### Output: BASH program
 
 ```bash
 #!/bin/bash
@@ -53,21 +67,7 @@ done
 read -p "Press [Enter] key to resume."
 ```
 
-## Gradle settings
-
-You add the following configuration to your `build.gradle` file. `${version}` is the release version.
-
-```groovy
-repositories {
-    jcenter()
-}
-
-dependencies {
-    compile "com.keidrun.l2l-BatchToBash-plugin:l2l-BatchToBash-plugin:${version}"
-}
-```
-
-## Not implemented list
+## Not yet implemented list
 
 - `for` options
 - `goto` and `:LABEL`

@@ -1,6 +1,6 @@
 package com.keidrun.l2l.plugins.batchtobash.converters;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
@@ -47,7 +47,7 @@ public class CommandConverterTest {
             String actual = sut.convert(fixture.origin);
 
             // verify
-            assertThat(actual, is(fixture.dest));
+            assertThat(actual, equalTo(fixture.dest));
 
         }
 

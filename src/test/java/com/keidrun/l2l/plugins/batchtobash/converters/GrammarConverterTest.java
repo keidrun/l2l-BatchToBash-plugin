@@ -1,14 +1,16 @@
 package com.keidrun.l2l.plugins.batchtobash.converters;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
 import com.keidrun.l2l.plugins.batchtobash.converters.Converter;
@@ -199,12 +201,17 @@ public class GrammarConverterTest {
             String actual = sut.convert(fixture.origin);
 
             // verify
-            assertThat(actual, is(fixture.dest));
+            assertThat(actual, equalTo(fixture.dest));
 
         }
 
-        @Test(expected = IllegalArgumentException.class)
+        @Rule
+        public ExpectedException thrown = ExpectedException.none();
+
+        @Test
         public void throwBadGrammar() {
+            thrown.expect(IllegalArgumentException.class);
+            thrown.expectMessage("\"" + "@echo off" + "\" must be only one.");
 
             // setup
             String badSentence = "@echo off\n@echo off";

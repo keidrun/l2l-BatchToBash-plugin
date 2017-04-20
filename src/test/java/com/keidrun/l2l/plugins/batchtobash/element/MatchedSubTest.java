@@ -3,7 +3,7 @@
 */
 package com.keidrun.l2l.plugins.batchtobash.element;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -23,9 +23,9 @@ public class MatchedSubTest {
 
     @Test
     public void testGettersAndSetters() {
-        assertThat(sut.getOriginal(), is("original"));
-        assertThat(sut.getCommented(), is("commented"));
-        assertThat(sut.getConverted(), is("converted"));
+        assertThat(sut.getOriginal(), equalTo("original"));
+        assertThat(sut.getCommented(), equalTo("commented"));
+        assertThat(sut.getConverted(), equalTo("converted"));
     }
 
 }

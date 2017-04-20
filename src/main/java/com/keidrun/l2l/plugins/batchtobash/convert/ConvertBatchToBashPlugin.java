@@ -50,7 +50,7 @@ public class ConvertBatchToBashPlugin implements ConvertPlugin {
 
         if (!isSupported(combination)) {
             throw new IllegalArgumentException(
-                    "The combination of " + combination.origin() + " and " + combination.dest() + "is not supported.");
+                    "The combination of " + combination.origin() + " and " + combination.dest() + " is not supported.");
         }
 
         List<Converter> converters = new ArrayList<Converter>();

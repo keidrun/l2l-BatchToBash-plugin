@@ -3,7 +3,7 @@
 */
 package com.keidrun.l2l.plugins.batchtobash.element;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.util.ArrayList;
@@ -34,12 +34,12 @@ public class MatchedTest {
         String actualCommented = sut.getCommented();
         List<MatchedSub> actualMatchedList = sut.getMatchedList();
 
-        assertThat(actualOriginal, is("something"));
-        assertThat(actualCommented, is("anything"));
+        assertThat(actualOriginal, equalTo("something"));
+        assertThat(actualCommented, equalTo("anything"));
         for (MatchedSub actualSub : actualMatchedList) {
-            assertThat(actualSub.getOriginal(), is("original"));
-            assertThat(actualSub.getCommented(), is("commented"));
-            assertThat(actualSub.getConverted(), is("converted"));
+            assertThat(actualSub.getOriginal(), equalTo("original"));
+            assertThat(actualSub.getCommented(), equalTo("commented"));
+            assertThat(actualSub.getConverted(), equalTo("converted"));
         }
 
     }

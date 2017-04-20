@@ -1,16 +1,18 @@
 package com.keidrun.l2l.plugins.batchtobash.convert;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
 import com.keidrun.l2l.face.element.Combination;
@@ -74,15 +76,20 @@ public class ConvertBatchToBashPluginTest {
             String actual = sut.convert(com, fixture.origin);
 
             // verify
-            assertThat(actual, is(fixture.dest));
+            assertThat(actual, equalTo(fixture.dest));
 
         }
 
-        @Test(expected = IllegalArgumentException.class)
+        @Rule
+        public ExpectedException thrown = ExpectedException.none();
+
+        @Test
         public void badCombination() {
+            thrown.expect(IllegalArgumentException.class);
+            thrown.expectMessage("The combination of " + Language.C + " and " + Language.C + " is not supported.");
 
             // setup
-            Combination com = new Combination(Language.C, Language.JAVA);
+            Combination com = new Combination(Language.C, Language.C);
 
             // exercise
             sut.convert(com, "");
