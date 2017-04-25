@@ -36,6 +36,11 @@ public class CommandConverterTest {
                 new Fixture(" cd D "," cd D "),
                 new Fixture("chdir D","cd D"),
                 new Fixture("CHDIR D","cd D"),
+                // clear
+                new Fixture("cls","clear"),
+                new Fixture(" cls "," clear "),
+                new Fixture("CLS","clear"),
+                new Fixture(" CLS "," clear "),
 
         };
         // @formatter:on
