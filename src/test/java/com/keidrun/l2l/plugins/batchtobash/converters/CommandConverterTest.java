@@ -82,7 +82,16 @@ public class CommandConverterTest {
                 new Fixture(" COMMAND /C "," bash "),
                 new Fixture(" COMMAND /k "," bash "),
                 new Fixture(" COMMAND /K "," bash "),
-
+                // diff
+                new Fixture("comp ","diff "),
+                new Fixture(" comp "," diff "),
+                new Fixture("COMP ","diff "),
+                new Fixture(" COMP "," diff "),
+                new Fixture("fc ","diff "),
+                new Fixture(" fc "," diff "),
+                new Fixture("FC ","diff "),
+                new Fixture(" FC "," diff "),
+                
         };
         // @formatter:on
 
