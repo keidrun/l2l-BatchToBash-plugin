@@ -91,6 +91,41 @@ public class CommandConverterTest {
                 new Fixture(" fc "," diff "),
                 new Fixture("FC ","diff "),
                 new Fixture(" FC "," diff "),
+                // cp
+                new Fixture("copy /s ","cp -r "),
+                new Fixture(" copy /s "," cp -r "),
+                new Fixture("copy /S ","cp -r "),
+                new Fixture(" copy /S "," cp -r "),
+                new Fixture("COPY /S ","cp -r "),
+                new Fixture(" COPY /S "," cp -r "),
+                new Fixture("COPY /s ","cp -r "),
+                new Fixture(" COPY /s "," cp -r "),
+                new Fixture("xcopy /s ","cp -r "),
+                new Fixture("xcopy /S ","cp -r "),
+                new Fixture(" xcopy /S "," cp -r "),
+                new Fixture("XCOPY /S ","cp -r "),
+                new Fixture("XCOPY /s ","cp -r "),
+                new Fixture(" XCOPY /s "," cp -r "),
+                new Fixture("copy ","cp "),
+                new Fixture(" copy "," cp "),
+                new Fixture("COPY ","cp "),
+                new Fixture(" COPY "," cp "),
+                new Fixture("xcopy ","cp "),
+                new Fixture(" xcopy "," cp "),
+                new Fixture("XCOPY ","cp "),
+                new Fixture(" XCOPY "," cp "),
+                
+                
+                
+                
+                // adddrv on DOS
+                new Fixture("adddrv","#adddrv"),
+                new Fixture(" adddrv "," #adddrv "),
+                new Fixture("ADDDRV","#ADDDRV"),
+                new Fixture(" ADDDRV "," #ADDDRV "),
+                
+                
+                
                 
         };
         // @formatter:on
