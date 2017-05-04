@@ -123,7 +123,14 @@ public class CommandConverterTest {
                 new Fixture(" adddrv "," #adddrv "),
                 new Fixture("ADDDRV","#ADDDRV"),
                 new Fixture(" ADDDRV "," #ADDDRV "),
-                
+                new Fixture("attrib","#attrib"),
+                new Fixture(" attrib "," #attrib "),
+                new Fixture("ATTRIB","#ATTRIB"),
+                new Fixture(" ATTRIB "," #ATTRIB "),
+                new Fixture("chcp","#chcp"),
+                new Fixture(" chcp "," #chcp "),
+                new Fixture("CHCP","#CHCP"),
+                new Fixture(" CHCP "," #CHCP "),
                 
                 
                 
