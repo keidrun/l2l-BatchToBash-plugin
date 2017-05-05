@@ -123,15 +123,21 @@ public class CommandConverterTest {
                 new Fixture(" adddrv "," #adddrv "),
                 new Fixture("ADDDRV","#ADDDRV"),
                 new Fixture(" ADDDRV "," #ADDDRV "),
+                // attrib on DOS
                 new Fixture("attrib","#attrib"),
                 new Fixture(" attrib "," #attrib "),
                 new Fixture("ATTRIB","#ATTRIB"),
                 new Fixture(" ATTRIB "," #ATTRIB "),
+                // chcp on DOS
                 new Fixture("chcp","#chcp"),
                 new Fixture(" chcp "," #chcp "),
                 new Fixture("CHCP","#CHCP"),
                 new Fixture(" CHCP "," #CHCP "),
-                
+                // chev on DOS
+                new Fixture("chev","#chev"),
+                new Fixture(" chev "," #chev "),
+                new Fixture("CHEV","#CHEV"),
+                new Fixture(" CHEV "," #CHEV "),
                 
                 
         };
