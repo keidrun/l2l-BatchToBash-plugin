@@ -138,7 +138,11 @@ public class CommandConverterTest {
                 new Fixture(" chev "," #chev "),
                 new Fixture("CHEV","#CHEV"),
                 new Fixture(" CHEV "," #CHEV "),
-                
+                // chkdsk on DOS
+                new Fixture("chkdsk","#chkdsk"),
+                new Fixture(" chkdsk "," #chkdsk "),
+                new Fixture("CHKDSK","#CHKDSK"),
+                new Fixture(" CHKDSK "," #CHKDSK "),
                 
         };
         // @formatter:on
