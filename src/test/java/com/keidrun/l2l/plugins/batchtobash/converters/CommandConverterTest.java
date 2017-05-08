@@ -143,7 +143,11 @@ public class CommandConverterTest {
                 new Fixture(" chkdsk "," #chkdsk "),
                 new Fixture("CHKDSK","#CHKDSK"),
                 new Fixture(" CHKDSK "," #CHKDSK "),
-                
+                // choice on DOS
+                new Fixture("choice","#choice"),
+                new Fixture(" choice "," #choice "),
+                new Fixture("CHOICE","#CHOICE"),
+                new Fixture(" CHOICE "," #CHOICE "),
         };
         // @formatter:on
 
