@@ -148,6 +148,11 @@ public class CommandConverterTest {
                 new Fixture(" choice "," #choice "),
                 new Fixture("CHOICE","#CHOICE"),
                 new Fixture(" CHOICE "," #CHOICE "),
+                // clip on DOS
+                new Fixture("clip","#clip"),
+                new Fixture(" clip "," #clip "),
+                new Fixture("CLIP","#CLIP"),
+                new Fixture(" CLIP "," #CLIP "),
         };
         // @formatter:on
 
