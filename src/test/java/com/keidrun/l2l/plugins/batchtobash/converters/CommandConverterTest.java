@@ -153,6 +153,11 @@ public class CommandConverterTest {
                 new Fixture(" clip "," #clip "),
                 new Fixture("CLIP","#CLIP"),
                 new Fixture(" CLIP "," #CLIP "),
+                // color on DOS
+                new Fixture("color","#color"),
+                new Fixture(" color "," #color "),
+                new Fixture("COLOR","#COLOR"),
+                new Fixture(" COLOR "," #COLOR "),
         };
         // @formatter:on
 
