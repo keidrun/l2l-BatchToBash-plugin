@@ -158,6 +158,11 @@ public class CommandConverterTest {
                 new Fixture(" color "," #color "),
                 new Fixture("COLOR","#COLOR"),
                 new Fixture(" COLOR "," #COLOR "),
+                // deldrv on DOS
+                new Fixture("deldrv","#deldrv"),
+                new Fixture(" deldrv "," #deldrv "),
+                new Fixture("DELDRV","#DELDRV"),
+                new Fixture(" DELDRV "," #DELDRV "),
         };
         // @formatter:on
 
