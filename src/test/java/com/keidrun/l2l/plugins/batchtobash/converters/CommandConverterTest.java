@@ -163,6 +163,11 @@ public class CommandConverterTest {
                 new Fixture(" deldrv "," #deldrv "),
                 new Fixture("DELDRV","#DELDRV"),
                 new Fixture(" DELDRV "," #DELDRV "),
+                // diskcomp on DOS
+                new Fixture("diskcomp","#diskcomp"),
+                new Fixture(" diskcomp "," #diskcomp "),
+                new Fixture("DISKCOMP","#DISKCOMP"),
+                new Fixture(" DISKCOMP "," #DISKCOMP "),
         };
         // @formatter:on
 
