@@ -168,6 +168,13 @@ public class CommandConverterTest {
                 new Fixture(" diskcomp "," #diskcomp "),
                 new Fixture("DISKCOMP","#DISKCOMP"),
                 new Fixture(" DISKCOMP "," #DISKCOMP "),
+                // doskey on DOS
+                new Fixture("doskey","#doskey"),
+                new Fixture(" doskey "," #doskey "),
+                new Fixture("DOSKEY","#DOSKEY"),
+                new Fixture(" DOSKEY "," #DOSKEY "),
+
+
         };
         // @formatter:on
 
