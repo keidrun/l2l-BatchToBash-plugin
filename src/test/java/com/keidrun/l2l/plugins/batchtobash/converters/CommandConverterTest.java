@@ -173,6 +173,12 @@ public class CommandConverterTest {
                 new Fixture(" doskey "," #doskey "),
                 new Fixture("DOSKEY","#DOSKEY"),
                 new Fixture(" DOSKEY "," #DOSKEY "),
+                // expand on DOS
+                new Fixture("expand","#expand"),
+                new Fixture(" expand "," #expand "),
+                new Fixture("EXPAND","#EXPAND"),
+                new Fixture(" EXPAND "," #EXPAND "),
+
 
 
         };
