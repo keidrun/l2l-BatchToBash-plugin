@@ -178,6 +178,12 @@ public class CommandConverterTest {
                 new Fixture(" expand "," #expand "),
                 new Fixture("EXPAND","#EXPAND"),
                 new Fixture(" EXPAND "," #EXPAND "),
+                // format on DOS
+                new Fixture("format","#format"),
+                new Fixture(" format "," #format "),
+                new Fixture("FORMAT","#FORMAT"),
+                new Fixture(" FORMAT "," #FORMAT "),
+
 
 
 
