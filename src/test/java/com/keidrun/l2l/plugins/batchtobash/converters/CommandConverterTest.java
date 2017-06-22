@@ -183,7 +183,11 @@ public class CommandConverterTest {
                 new Fixture(" format "," #format "),
                 new Fixture("FORMAT","#FORMAT"),
                 new Fixture(" FORMAT "," #FORMAT "),
-
+                // icacls on DOS
+                new Fixture("icacls","#icacls"),
+                new Fixture(" icacls "," #icacls "),
+                new Fixture("ICACLS","#ICACLS"),
+                new Fixture(" ICACLS "," #ICACLS "),
 
 
 
