@@ -188,6 +188,11 @@ public class CommandConverterTest {
                 new Fixture(" icacls "," #icacls "),
                 new Fixture("ICACLS","#ICACLS"),
                 new Fixture(" ICACLS "," #ICACLS "),
+                // label on DOS
+                new Fixture("label","#label"),
+                new Fixture(" label "," #label "),
+                new Fixture("LABEL","#LABEL"),
+                new Fixture(" LABEL "," #LABEL "),
 
 
 
