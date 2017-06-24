@@ -193,7 +193,15 @@ public class CommandConverterTest {
                 new Fixture(" label "," #label "),
                 new Fixture("LABEL","#LABEL"),
                 new Fixture(" LABEL "," #LABEL "),
-
+                // loadhigh on DOS
+                new Fixture("lh","#lh"),
+                new Fixture(" lh "," #lh "),
+                new Fixture("LH","#LH"),
+                new Fixture(" LH "," #LH "),
+                new Fixture("loadhigh","#loadhigh"),
+                new Fixture(" loadhigh "," #loadhigh "),
+                new Fixture("LOADHIGH","#LOADHIGH"),
+                new Fixture(" LOADHIGH "," #LOADHIGH "),
 
 
         };
