@@ -207,7 +207,11 @@ public class CommandConverterTest {
                 new Fixture(" mode "," #mode "),
                 new Fixture("MODE","#MODE"),
                 new Fixture(" MODE "," #MODE "),
-
+                // pushd on DOS
+                new Fixture("pushd","#pushd"),
+                new Fixture(" pushd "," #pushd "),
+                new Fixture("PUSHD","#PUSHD"),
+                new Fixture(" PUSHD "," #PUSHD "),
 
         };
         // @formatter:on
