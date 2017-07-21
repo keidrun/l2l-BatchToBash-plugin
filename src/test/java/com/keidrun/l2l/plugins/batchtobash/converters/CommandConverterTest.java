@@ -212,6 +212,11 @@ public class CommandConverterTest {
                 new Fixture(" pushd "," #pushd "),
                 new Fixture("PUSHD","#PUSHD"),
                 new Fixture(" PUSHD "," #PUSHD "),
+                // popd on DOS
+                new Fixture("popd","#popd"),
+                new Fixture(" popd "," #popd "),
+                new Fixture("POPD","#POPD"),
+                new Fixture(" POPD "," #POPD "),
 
         };
         // @formatter:on
