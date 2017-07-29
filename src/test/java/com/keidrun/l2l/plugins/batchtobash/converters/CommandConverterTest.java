@@ -217,6 +217,12 @@ public class CommandConverterTest {
                 new Fixture(" popd "," #popd "),
                 new Fixture("POPD","#POPD"),
                 new Fixture(" POPD "," #POPD "),
+                // prompt on DOS
+                new Fixture("prompt","#prompt"),
+                new Fixture(" prompt "," #prompt "),
+                new Fixture("PROMPT","#PROMPT"),
+                new Fixture(" PROMPT "," #PROMPT "),
+
 
         };
         // @formatter:on
