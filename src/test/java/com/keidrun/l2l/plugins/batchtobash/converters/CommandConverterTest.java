@@ -222,6 +222,12 @@ public class CommandConverterTest {
                 new Fixture(" prompt "," #prompt "),
                 new Fixture("PROMPT","#PROMPT"),
                 new Fixture(" PROMPT "," #PROMPT "),
+                // recover on DOS
+                new Fixture("recover","#recover"),
+                new Fixture(" recover "," #recover "),
+                new Fixture("RECOVER","#RECOVER"),
+                new Fixture(" RECOVER "," #RECOVER "),
+
 
 
         };
