@@ -227,6 +227,11 @@ public class CommandConverterTest {
                 new Fixture(" recover "," #recover "),
                 new Fixture("RECOVER","#RECOVER"),
                 new Fixture(" RECOVER "," #RECOVER "),
+                // reg on DOS
+                new Fixture("reg","#reg"),
+                new Fixture(" reg "," #reg "),
+                new Fixture("REG","#REG"),
+                new Fixture(" REG "," #REG "),
 
 
 
