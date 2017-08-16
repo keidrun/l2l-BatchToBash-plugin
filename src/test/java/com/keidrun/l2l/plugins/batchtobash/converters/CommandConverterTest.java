@@ -232,6 +232,16 @@ public class CommandConverterTest {
                 new Fixture(" reg "," #reg "),
                 new Fixture("REG","#REG"),
                 new Fixture(" REG "," #REG "),
+                // ren on DOS
+                new Fixture("ren","#ren"),
+                new Fixture(" ren "," #ren "),
+                new Fixture("REN","#REN"),
+                new Fixture(" REN "," #REN "),
+                new Fixture("rename","#rename"),
+                new Fixture(" rename "," #rename "),
+                new Fixture("RENAME","#RENAME"),
+                new Fixture(" RENAME "," #RENAME "),
+
 
 
 
