@@ -241,7 +241,11 @@ public class CommandConverterTest {
                 new Fixture(" rename "," #rename "),
                 new Fixture("RENAME","#RENAME"),
                 new Fixture(" RENAME "," #RENAME "),
-
+                // replace on DOS
+                new Fixture("replace","#replace"),
+                new Fixture(" replace "," #replace "),
+                new Fixture("REPLACE","#REPLACE"),
+                new Fixture(" REPLACE "," #REPLACE "),
 
 
 
